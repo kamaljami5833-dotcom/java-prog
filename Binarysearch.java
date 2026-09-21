@@ -1,5 +1,21 @@
 import java.util.Scanner;
 public class Binarysearch {
+    static int binarySearch(int[] arr, int key) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == key) {
+                return mid;
+            }
+            if (arr[mid] < key) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1; // Key not found
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of elements in the array: ");
@@ -11,22 +27,10 @@ public class Binarysearch {
         }
         System.out.println("Enter the element to be searched: ");
         int key = sc.nextInt();
-        int low = 0;
-        int high = n - 1;
-        int found = 0;
-        while (low <= high) {
-            int mid = (low + high) / 2;
-            if (arr[mid] == key) {
-                System.out.println("Element found at index: " + mid);
-                found = 1;
-                break;
-            } else if (arr[mid] < key) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
-            }
-        }
-        if (found==0) {
+        int result = binarySearch(arr, key);
+        if (result != -1) {
+            System.out.println("Element found at index: " + result);
+        } else {
             System.out.println("Element not found");
         }
     }
