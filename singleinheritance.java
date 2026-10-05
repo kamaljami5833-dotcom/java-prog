@@ -9,7 +9,7 @@ class Dog extends Animal {
             System.out.println(name + " is barking...");
         }
     }
-public class singleinheritance {
+public class Singleinheritance {
     public static void main(String args[]) {
         Dog d = new Dog();
         d.name = "Tommy";
